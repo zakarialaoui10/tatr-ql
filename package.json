@@ -1,0 +1,32 @@
+{
+  "name": "@zikojs/tatr",
+  "version": "0.1.0",
+  "description": "Task Tracker (Nodejs Version)",
+  "keywords": [
+    "task",
+    "tracker",
+    "tater",
+    "tql"
+  ],
+  "homepage": "https://github.com/zakarialaoui10/tatr#readme",
+  "bugs": {
+    "url": "https://github.com/zakarialaoui10/tatr/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zakarialaoui10/tatr.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "ISC",
+  "author": "zakaria elalaoui",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ziko": "^2.0.0-beta.10"
+  }
+}
