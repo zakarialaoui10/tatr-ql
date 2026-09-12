@@ -12,8 +12,9 @@ import {
 } from "./store.js";
 import { parseTags } from "./task.js";
 import { matchesQuery } from "./query.js";
+import packageJson from "../package.json" with { type: "json" };
 
-const VERSION = "0.1.0";
+const {version : VERSION} = packageJson;
 
 const help = () => console.log(`
 tatr ${VERSION} — filesystem task tracker
