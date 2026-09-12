@@ -1,2 +1,4 @@
-# tatr
-Task Tracker (Nodejs Version)
+# tatr-ql
+Task Tracker Query Language (Nodejs Version)
+
+

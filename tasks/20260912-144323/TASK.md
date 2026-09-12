@@ -1,6 +1,0 @@
-# Task 1
-
-- STATUS: OPEN
-- PRIORITY: 0
-- TAGS: 
-
