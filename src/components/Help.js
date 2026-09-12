@@ -4,6 +4,9 @@ const {
 } = tags
 export const Help = ({ version = '0.1.0'} = {}) =>
   div(
+    pre(`
+        -
+    `),
     h1(
       `tatr ${version}`,
       span(" — filesystem task tracker")

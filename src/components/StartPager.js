@@ -1,13 +1,23 @@
 export const StartPager = async () => {
+  // Let TermDOM finish its initial layout.
   await new Promise((resolve) =>
     window.requestAnimationFrame(resolve)
   );
 
-  const page = () =>
-    Math.max(1, window.innerHeight - 1);
+  await new Promise((resolve) =>
+    window.requestAnimationFrame(resolve)
+  );
+
+  // Reset the camera after layout has settled.
+  window.scrollTo(0, 0);
+
+  const page = () => Math.max(1, window.innerHeight - 1);
 
   const height = () =>
-    document.body.scrollHeight;
+    Math.max(
+      0,
+      document.body.scrollHeight - window.innerHeight
+    );
 
   const bindings = {
     " ": () => window.scrollBy(0, page()),
@@ -23,19 +33,22 @@ export const StartPager = async () => {
     k: () => window.scrollBy(0, -1),
     ArrowUp: () => window.scrollBy(0, -1),
 
-    g: () => window.scrollBy(0, -height()),
-    G: () => window.scrollBy(0, height()),
+    g: () => window.scrollTo(0, 0),
 
-    q: () => term.window.close()
+    G: () =>
+      window.scrollTo(
+        0,
+        height()
+      ),
+
+    q: () =>
+      term.window.close()
   };
 
-  document.addEventListener("keydown", (event) => {
-    const key = event.key;
-
-    const handler = bindings[key];
-
-    if (!handler) return;
-
-    handler();
-  });
+  document.addEventListener(
+    "keydown",
+    (event) => {
+      bindings[event.key]?.();
+    }
+  );
 };
