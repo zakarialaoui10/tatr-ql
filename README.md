@@ -4,7 +4,7 @@ tatr-ql is a Node.js reimplementation of [tsoding/tatr](https://github.com/tsodi
 The original project is implemented in C/C++. This project brings the same concept and functionality to the JavaScript/Node.js ecosystem.
 
 [!NOTE]
-For more information, watch this [Tsoding video](https://www.youtube.com/watch?v=_hxdZtXTDSw&t=4164s) covering the original C/C++ implementation. It's the same-same, but different!
+For more information, watch this [Tsoding video](https://www.youtube.com/watch?v=_hxdZtXTDSw&t=4164s) covering the original C/C++ implementation. It's the same-same, but different!!
 
 
 > [!NOTE]
