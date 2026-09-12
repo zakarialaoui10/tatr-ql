@@ -186,7 +186,7 @@ export const main = async (argv = process.argv.slice(2)) => {
     case "help": 
     case "-h":
     case "--help":
-      Help().mount(document.body);
+      Help({version : VERSION}).mount(document.body);
       await StartPager()
       break;
     case "version":

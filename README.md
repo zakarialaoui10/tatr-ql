@@ -7,6 +7,12 @@ The original project is implemented in C/C++. This project brings the same conce
 > This is my first piece of AI slop. The tests were AI-generated. Honestly, the main things I implemented myself were the `Zod` schema validation and the integration of [TermDom](https://termdom.org/) with [ZikoJS](https://github.com/zikojs/ziko/) for the UI.
 I could build the rest from scratch, but I don't have the time right now. I mainly needed the API to monitor my 50+ ZikoJS packages on npm.
 
+## Install
+
+```console
+ npm i tatr-ql -g
+```
+
 ## Task.md
 
 ```md
