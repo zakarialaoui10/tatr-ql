@@ -1,6 +1,6 @@
 {
   "name": "tatr-ql",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Task Tracker (Nodejs Version)",
   "keywords": [
     "task",
@@ -27,7 +27,7 @@
     "test:run": "vitest run"
   },
   "bin": {
-    "tatr": "./bin/tatr.js"
+    "tatr": "./bin/index.js"
   },
   "dependencies": {
     "@b9g/termdom": "^0.1.6",
