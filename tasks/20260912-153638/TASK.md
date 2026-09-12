@@ -2,5 +2,5 @@
 
 - STATUS: OPEN
 - PRIORITY: 0
-- TAGS: bug, bug
+- TAGS: bug
 
