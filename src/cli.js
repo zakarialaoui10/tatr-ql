@@ -24,7 +24,8 @@ globalThis.window = window
 
 import {
   StartPager, 
-  Help 
+  Help,
+  ShowTask
 } from "./components/index.js";
 
 const {version : VERSION} = packageJson;
@@ -106,21 +107,25 @@ const commandShow = async (id) => {
 
   const task = await readTask(id);
 
+  const {title, status, priority, tags} = task
+
+  ShowTask({id, title, status, priority, tags}).mount(document.body)
+
   // console.log(`ID:       ${task.id}`);
   // console.log(`TITLE:    ${task.title}`);
   // console.log(`STATUS:   ${task.status}`);
   // console.log(`PRIORITY: ${task.priority}`);
   // console.log(`TAGS:     ${task.tags.join(", ")}`);
 
-  table(
-    tbody(
-      tr(td("ID"),       td(task.id)),
-      tr(td("TITLE"),    td(task.title)),
-      tr(td("STATUS"),   td(task.status)),
-      tr(td("PRIORITY"), td(task.priority)),
-      tr(td("TAGS"),     td(task.tags.join(", ")))
-    )
-  ).mount(document.body)
+  // table(
+  //   tbody(
+  //     tr(td("ID"),       td(task.id)),
+  //     tr(td("TITLE"),    td(task.title)),
+  //     tr(td("STATUS"),   td(task.status)),
+  //     tr(td("PRIORITY"), td(task.priority)),
+  //     tr(td("TAGS"),     td(task.tags.join(", ")))
+  //   )
+  // ).mount(document.body)
 
   if (task.description) console.log(`\n${task.description}`);
 };
