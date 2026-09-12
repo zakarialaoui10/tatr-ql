@@ -1,6 +1,6 @@
 {
   "name": "tatr-ql",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Task Tracker (Nodejs Version)",
   "keywords": [
     "task",
@@ -22,12 +22,16 @@
   "license": "MIT",
   "author": "zakaria elalaoui",
   "type": "module",
-  "main": "index.js",
   "scripts": {
     "test": "vitest",
     "test:run": "vitest run"
   },
+  "bin": {
+    "tatr": "./bin/tatr.js"
+  },
   "dependencies": {
+    "@b9g/termdom": "^0.1.6",
+    "vanjs-core": "^1.6.1",
     "ziko": "^2.0.0-beta.10",
     "zod": "^4.6.2"
   },

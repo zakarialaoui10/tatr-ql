@@ -14,45 +14,20 @@ import { parseTags } from "./task.js";
 import { matchesQuery } from "./query.js";
 import packageJson from "../package.json" with { type: "json" };
 
+import {TermDOM} from "@b9g/termdom";
+const term = new TermDOM();
+term.attach();
+const {document, window} = term;
+globalThis.document = document
+globalThis.window = window
+
+
+import {
+  StartPager, 
+  Help 
+} from "./components/index.js";
+
 const {version : VERSION} = packageJson;
-
-const help = () => console.log(`
-tatr ${VERSION} — filesystem task tracker
-
-Usage:
-  tatr <command> [options]
-
-Commands:
-  new <title>       Create a task
-  ls [query]        List tasks, optionally filtered by TQL
-  show <id>         Show a task
-  edit <id>         Edit TASK.md in $EDITOR
-  close <id>        Mark a task CLOSED
-  reopen <id>       Mark a task OPEN
-  rm <id>           Delete a task
-  tags              Show tag descriptions
-  init              Create tasks/
-  help              Show this help
-  version           Show the version
-
-new options:
-  --priority <n>    Task priority (default: 0)
-  --tags <a,b,c>    Comma-separated tags
-  --suffix <name>   HUID suffix
-  --description <x> Initial description
-
-ls options:
-  --all             Include CLOSED tasks (default is all; kept for compatibility)
-  --open            Only OPEN tasks
-  --closed          Only CLOSED tasks
-
-TQL examples:
-  tatr ls :bug
-  tatr ls ':bug and not :ui'
-  tatr ls 'not tagged'
-  tatr ls ':bug and priority lt 50'
-  tatr ls '[:bug or :enhancement] and priority ge 10'
-`.trim());
 
 const parseFlags = (args) => {
   const positionals = [];
@@ -131,11 +106,21 @@ const commandShow = async (id) => {
 
   const task = await readTask(id);
 
-  console.log(`ID:       ${task.id}`);
-  console.log(`TITLE:    ${task.title}`);
-  console.log(`STATUS:   ${task.status}`);
-  console.log(`PRIORITY: ${task.priority}`);
-  console.log(`TAGS:     ${task.tags.join(", ")}`);
+  // console.log(`ID:       ${task.id}`);
+  // console.log(`TITLE:    ${task.title}`);
+  // console.log(`STATUS:   ${task.status}`);
+  // console.log(`PRIORITY: ${task.priority}`);
+  // console.log(`TAGS:     ${task.tags.join(", ")}`);
+
+  table(
+    tbody(
+      tr(td("ID"),       td(task.id)),
+      tr(td("TITLE"),    td(task.title)),
+      tr(td("STATUS"),   td(task.status)),
+      tr(td("PRIORITY"), td(task.priority)),
+      tr(td("TAGS"),     td(task.tags.join(", ")))
+    )
+  ).mount(document.body)
 
   if (task.description) console.log(`\n${task.description}`);
 };
@@ -193,10 +178,11 @@ export const main = async (argv = process.argv.slice(2)) => {
   const [command = "help", ...args] = argv;
 
   switch (command) {
-    case "help":
+    case "help": 
     case "-h":
     case "--help":
-      help();
+      Help().mount(document.body);
+      await StartPager()
       break;
     case "version":
     case "-v":
