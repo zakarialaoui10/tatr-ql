@@ -102,5 +102,6 @@ export const updateTaskMarkdown = (markdown, changes = {}) => {
         break;
     }
   }
+
   return serializeTask(task);
 };
