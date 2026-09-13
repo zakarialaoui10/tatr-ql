@@ -1,0 +1,20 @@
+- 1.1.0
+    - Added
+        - Support resolving tasks by order/index in addition to HUID.
+        - Support positive task indexes (0, 1, 2, ...).
+        - Support negative task indexes (-1 for the last task, -2 for the second-to-last task).
+        - Task order references are supported by `show`, `close`, `reopen`, and `rm`.
+- 1.0.0
+    - Added
+        - Initial stable release of tatr-ql.
+        - Filesystem-based task storage using TASK.md.
+        - HUID-based task identification.
+        - Task creation, listing, editing, closing, reopening, and deletion.
+        - Task priorities, statuses, tags, and descriptions.
+        - Task Tracker Query Language (TQL) for filtering tasks.
+        - CLI commands for managing tasks.
+        - `--priority`, `--tags`, `--suffix`, and `--description` options for task creation.
+        - TermDOM + ZikoJS terminal UI.
+        - Zod-based task and query validation.
+        - Vitest test suite for core functionality.
+        - `help` and `version` commands.
