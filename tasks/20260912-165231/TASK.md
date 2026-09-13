@@ -1,6 +1,6 @@
 # Fix global install issue
 
-- STATUS: OPEN
-- PRIORITY: 0
-- TAGS: 
+- STATUS: CLOSED
+- PRIORITY: 100
+- TAGS: cli, bug
 

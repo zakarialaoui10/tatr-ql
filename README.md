@@ -30,13 +30,34 @@ tatr <command> [options]
 |`init`|Create tasks/|
 |`new <title>`|Create a task|
 |`ls [query]`|List tasks, optionally filtered by TQL|
-|`show <id>`|Show a task|
-|`close <id>`|Mark a task CLOSED|
-|`reopen <id>`|Mark a task OPEN|
-|`rm <id>`|Delete a task|
+|`show <id\|order>`|Show a task|
+|`close <id\|order>`|Mark a task CLOSED|
+|`reopen <id\|order>`|Mark a task OPEN|
+|`rm <id\|order>`|Delete a task|
 |`tags`|Show tag descriptions|
 |`help`|Show help|
 |`version`|Show the version|
+
+#### Task References
+
+Commands that operate on a task accept either its HUID or its order/index.
+
+|Reference|Meaning|
+|-|-|
+|`20260913-120000`|Task identified by its HUID|
+|`0`|First task|
+|`1`|Second task|
+|`-1`|Last task|
+|`-2`|Second-to-last task|
+
+- For example:
+
+```console
+$ tatr show 0
+$ tatr show -1
+$ tatr close 2
+$ tatr rm -1
+```
 
 ### Options 
 
@@ -58,7 +79,9 @@ tatr <command> [options]
 |`--closed`|Only CLOSED tasks|
 
 
-## Task.md
+## TASK.md
+
+Each task is stored as a TASK.md file:
 
 ```md
 # <title>
